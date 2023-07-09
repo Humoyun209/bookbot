@@ -22,6 +22,11 @@
 #         num = len(text[start:])
 #         return [text[start:], num]
 
+import os
+from pprint import pprint
+
+BOOK_PATH = 'book/Bredberi_Marsianskie-hroniki.txt'
+
 
 def _get_part_text(text: str, start: int, page_size: int) -> tuple[str, int]:
     end_simbol = ['.', ',', '!', ':', ';', '?']
@@ -48,3 +53,7 @@ def prepare_book(path: str) -> None:
         book[key] = txt.lstrip(' \n')
         key += 1
         start += length
+
+
+# Вызов функции prepare_book для подготовки книги из текстового файла
+prepare_book(os.path.join(os.getcwd(), BOOK_PATH))
